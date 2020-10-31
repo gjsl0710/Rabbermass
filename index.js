@@ -8,7 +8,7 @@ const byeChannelComment = "안녕히가세요.";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '.dm' }, status: 'online' })
+  client.user.setPresence({ LISTENING: { name: '.dm' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
