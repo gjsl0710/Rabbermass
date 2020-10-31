@@ -29,11 +29,6 @@ client.on("guildMemberRemove", (member) => {
   byeChannel.send(`<@${deleteUser.id}> ${byeChannelComment}\n`);
 });
 
-if(message.content === `!핑`) { //자신의 prefix로 시작하고 ping이라고 입력 했을때 ex) !ping
-  const timeTaken = Date.now() - message.createdTimestamp; //timeTaken 이라는 함수를 만들고 timeTaken을  핑으로 지정합니다
-  message.channel.send(`${timeTaken}ms`) //서버와의 핑을 출력합니다
-}
-
 client.on('message', (message) => {
   if(message.author.bot) return;
 
@@ -41,6 +36,11 @@ client.on('message', (message) => {
     return message.reply('pong');
   }
 
+  if(message.content === `!핑`) { //자신의 prefix로 시작하고 ping이라고 입력 했을때 ex) !ping
+    const timeTaken = Date.now() - message.createdTimestamp; //timeTaken 이라는 함수를 만들고 timeTaken을  핑으로 지정합니다
+    message.channel.send(`${timeTaken}ms`) //서버와의 핑을 출력합니다
+  }
+  
   if(message.content == 'embed') {
     let img = 'https://cdn.discordapp.com/icons/419671192857739264/6dccc22df4cb0051b50548627f36c09b.webp?size=256';
     let embed = new Discord.RichEmbed()
